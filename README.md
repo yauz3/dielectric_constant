@@ -1,40 +1,38 @@
 # SMILES-Driven Dielectric Constant Prediction for Bioengineering-Oriented Solvent and Polymer Screening
 
-This repository contains the **code and data** used in the study:
+This repository contains the **code and datasets** used in the study:
 
 **SMILES-Driven Dielectric Constant Prediction for Bioengineering-Oriented Solvent and Polymer Screening**
 
-The project focuses on building **SMILES-based machine learning pipelines** to predict the **dielectric constant (relative permittivity, εr)** for screening solvents and polymer-like chemistries in materials and bioengineering-oriented workflows.
+The project implements a **SMILES-based, leakage-aware machine learning workflow** for predicting the **dielectric constant (relative permittivity, εr)** to support **solvent and polymer-like chemistry screening** in materials and bioengineering-oriented contexts.
 
 ---
 
-## Contents
+## Repository Contents
 
-- Source code for data processing, model training, evaluation, and result reporting  
-- Curated dataset(s) used in the experiments  
-- Configuration files / scripts to reproduce the benchmark runs  
-- (Optional) Trained models and prediction outputs (if included)
+This repository includes:
 
-> If you use this repository, please cite the associated manuscript (see Citation section below).
+- End-to-end preprocessing scripts (SMILES standardization, cleaning, deduplication)
+- Fingerprint-based feature generation (RDKit required)
+- Train/test split generation
+- Model training and evaluation pipeline(s)
+- Curated CSV datasets produced at different pipeline stages
 
 ---
 
-## Project Structure
-
-You may adapt the structure below to match your current files:
+## File Structure (as in this repository)
 
 ```text
 .
-├── data/
-│   ├── raw/                   # original/raw data (if applicable)
-│   ├── processed/             # cleaned / feature-ready data
-│   └── README.md              # data notes (sources, preprocessing, licensing)
-├── src/
-│   ├── preprocessing/         # SMILES cleaning, featurization, scaling, etc.
-│   ├── models/                # training scripts / model definitions
-│   ├── evaluation/            # metrics, plots, reports
-│   └── utils/                 # helper functions
-├── notebooks/                 # exploratory analysis (optional)
-├── results/                   # figures, tables, logs (optional)
-├── requirements.txt
-└── README.md
+├── 1_convert_smiles.py
+├── 2_read_SMILES_to_features.py
+├── 3_clean_data.py
+├── 4_clean_data_str_coloums.py
+├── 5_prepare_fingerprint_features.py
+├── 6_remove_similar_smiles.py
+├── 7_split_data_into_train_test.py
+├── 9_model_train_and_validate.py
+├── Dielectric_constants.csv
+├── dielectric_nd_with_smiles_with_feature_cleaned_2_with_fingerprint_fingerprint_filtration.csv
+├── train_ready.csv
+└── test_ready.csv
